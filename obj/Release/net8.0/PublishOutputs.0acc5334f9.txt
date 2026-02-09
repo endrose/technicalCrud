@@ -1,0 +1,12 @@
+D:\Workspace\dotnet\technicalTestCrud\publish\technicalTestCrud.exe
+D:\Workspace\dotnet\technicalTestCrud\publish\appsettings.Development.json
+D:\Workspace\dotnet\technicalTestCrud\publish\appsettings.json
+D:\Workspace\dotnet\technicalTestCrud\publish\technicalTestCrud.dll
+D:\Workspace\dotnet\technicalTestCrud\publish\technicalTestCrud.runtimeconfig.json
+D:\Workspace\dotnet\technicalTestCrud\publish\technicalTestCrud.pdb
+D:\Workspace\dotnet\technicalTestCrud\publish\Microsoft.EntityFrameworkCore.dll
+D:\Workspace\dotnet\technicalTestCrud\publish\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Workspace\dotnet\technicalTestCrud\publish\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Workspace\dotnet\technicalTestCrud\publish\Npgsql.dll
+D:\Workspace\dotnet\technicalTestCrud\publish\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\Workspace\dotnet\technicalTestCrud\publish\technicalTestCrud.deps.json
