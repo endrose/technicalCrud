@@ -1,17 +1,10 @@
-
-using System.ComponentModel.DataAnnotations;
-
 namespace technicalTestCrud.Models
 {
-  public class Products
+  public class Product
   {
     public int Id { get; set; }
-    [Required]
-    public string Name { get; set; }
-    [Required]
-    public string Description { get; set; }
-    [Required]
+    public string Name { get; set; } = string.Empty;
+
     public decimal Price { get; set; }
   }
-
 }

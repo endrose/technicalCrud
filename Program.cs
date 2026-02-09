@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 // Tambahkan PostgreSQL DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(
-        "Host=localhost;Port=5432;Database=technical_test;Username=postgres;Password=postgres"
+        "Host=localhost;Port=5432;Database=dotnet_db;Username=postgres;Password=postgres123"
     ));
 
 builder.Services.AddHttpClient();

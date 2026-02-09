@@ -1,0 +1,29 @@
+@model technicalTestCrud.Models.Product
+@using technicalTestCrud.Helpers
+
+@{
+  ViewData["Title"] = "Product Details";
+}
+
+<div class="container mt-4">
+  <h2>Product Details</h2>
+
+  <div class="card shadow-sm mt-3">
+    <div class="card-body">
+      <h4 class="card-title">@Model.Name</h4>
+      <p class="card-text">
+        <strong>Price:</strong>
+        @CurrencyHelper.ToRupiah(Model.Price)
+      </p>
+    </div>
+    <div class="card-footer">
+      <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id"  class="btn btn-warning">
+        Edit
+      </a>
+
+      <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+        Back
+      </a>
+    </div>
+  </div>
+</div>
