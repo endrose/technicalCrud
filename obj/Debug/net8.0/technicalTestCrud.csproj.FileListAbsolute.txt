@@ -106,3 +106,9 @@ D:\Workspace\dotnet\technicalTestCrud\obj\Debug\net8.0\refint\technicalTestCrud.
 D:\Workspace\dotnet\technicalTestCrud\obj\Debug\net8.0\technicalTestCrud.pdb
 D:\Workspace\dotnet\technicalTestCrud\obj\Debug\net8.0\technicalTestCrud.genruntimeconfig.cache
 D:\Workspace\dotnet\technicalTestCrud\obj\Debug\net8.0\ref\technicalTestCrud.dll
+D:\Workspace\dotnet\technicalTestCrud\bin\Debug\net8.0\publish\web.config
+D:\Workspace\dotnet\technicalTestCrud\bin\Debug\net8.0\publish\appsettings.Development.json
+D:\Workspace\dotnet\technicalTestCrud\bin\Debug\net8.0\publish\appsettings.json
+D:\Workspace\dotnet\technicalTestCrud\bin\Debug\net8.0\publish\technicalTestCrud.deps.json
+D:\Workspace\dotnet\technicalTestCrud\bin\Debug\net8.0\publish\technicalTestCrud.runtimeconfig.json
+D:\Workspace\dotnet\technicalTestCrud\bin\Debug\net8.0\publish\technicalTestCrud.staticwebassets.endpoints.json
