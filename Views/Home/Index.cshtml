@@ -1,56 +1,101 @@
-﻿@{
+﻿@model IEnumerable<technicalTestCrud.Models.Product>
+@using technicalTestCrud.Helpers
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-
-@using technicalTestCrud.Helpers
-
 <div class="container mt-4">
+    <!-- Header -->
     <div class="row mb-4 align-items-center">
         <div class="col">
             <h2 class="mb-0">Products</h2>
         </div>
         <div class="col-auto">
-            <a asp-controller="Products" asp-action="Create"        class="btn btn-sm btn-success">
+            <a asp-controller="Products" asp-action="Create" class="btn btn-sm btn-success">
                 Add Product
             </a>
         </div>
     </div>
 
-    <div class="row">
-        @foreach (var item in Model)
+    <!-- Toast Notifications -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        @if (TempData["SuccessMessage"] != null)
         {
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <div class="row mb-4">
-                            <div class="col">
-                        <h5 class="card-title">@item.Name</h5>
+            <div class="toast align-items-center text-bg-success border-0 show" role="alert" aria-live="assertive"
+                 aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">@TempData["SuccessMessage"]</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                </div>
+            </div>
+        }
+    </div>
 
-                            </div>
-                            <div class="col-auto">
-                                <a asp-action="Delete" asp-controller="Products"  asp-route-id="@item.Id"
-                                       class="btn btn-sm btn-danger">
-                                    Delete
-                                </a>
-                            </div>
-                        </div>
-                        <p class="card-text">
-                            <strong>Price:</strong> @CurrencyHelper.ToRupiah(@item.Price)
-                        </p>
-                    </div>
-                    <div class="card-footer text-end">
-                        <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Id"
-                               class="btn btn-sm btn-primary">
-                            Details
-                        </a>
-                        <a asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id"
-                               class="btn btn-sm btn-warning">
-                            Edit
-                        </a>
+    <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                toastElList.forEach(function (toastEl) {
+                    var toast = new bootstrap.Toast(toastEl)
+                    toast.show()
+                })
+            });
+    </script>
+
+    <!-- Products Grid -->
+    <div class="row">
+        @if (!Model.Any())
+        {
+            <div class="col-12 d-flex justify-content-center">
+                <div class="shadow-sm h-100 text-center" style="max-width: 300px;">
+                    <img src="/images/sand.png" alt="No Products" class="img-fluid mb-3 mt-3" />
+                    <div class="card-body">
+                        <h5 class="card-title">No Products Yet</h5>
                     </div>
                 </div>
             </div>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <h5 class="card-title">@item.Name</h5>
+                                </div>
+                                <div class="col-auto">
+                                    <!-- Delete Form -->
+                                    <form asp-action="delete" asp-controller="Products" method="post"
+                                          onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Product Image -->
+                            <img src="@(string.IsNullOrEmpty(item.ImagePath) ? "/images/placeholder.png" : item.ImagePath)"
+                                 alt="@item.Name" class="img-fluid mb-3" />
+
+                            <p class="card-text">
+                                <strong>Price:</strong> @CurrencyHelper.ToRupiah(item.Price)
+                            </p>
+                        </div>
+
+                        <!-- Card Footer: Details & Edit -->
+                        <div class="card-footer text-end">
+                            <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Id"
+                               class="btn btn-sm btn-primary">Details</a>
+                            <a asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id"
+                               class="btn btn-sm btn-warning">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            }
         }
     </div>
 </div>

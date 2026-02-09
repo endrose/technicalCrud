@@ -1,4 +1,12 @@
 # Technical Test - ENDROS
 
-#ngrok expose port
-ngrok http 521
+# Running Project
+dotnet run
+do
+
+# Migration Add Field 
+dotnet ef migrations add AddImagePathToProduct
+dotnet ef database update
+
+# ngrok expose port
+ngrok http {port}
