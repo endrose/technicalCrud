@@ -7,7 +7,7 @@
 <div class="container mt-4">
   <h2>Edit Product</h2>
 
-  <form asp-action="Edit" method="post">
+  <form asp-action="Edit" method="post" enctype="multipart/form-data">
     <!-- hidden id -->
     <input type="hidden" asp-for="Id" />
 
@@ -18,9 +18,30 @@
     </div>
 
     <div class="mb-3">
+      <label asp-for="Description" class="form-label"></label>
+      <textarea class="form-control" rows="3" asp-for="Description"></textarea>
+      <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
       <label asp-for="Price" class="form-label"></label>
       <input asp-for="Price" class="form-control" />
       <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Current Image</label>
+      @if (!string.IsNullOrEmpty(Model.ImagePath))
+      {
+        <div>
+          <img src="@Model.ImagePath" alt="Product Image" class="img-thumbnail" style="max-height:150px;" />
+        </div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label asp-for="ImageFile" class="form-label">Upload New Image</label>
+      <input asp-for="ImageFile" type="file" class="form-control" />
     </div>
 
     <div class="mt-3">

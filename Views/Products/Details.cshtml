@@ -11,6 +11,21 @@
   <div class="card shadow-sm mt-3">
     <div class="card-body">
       <h4 class="card-title">@Model.Name</h4>
+
+    
+
+      <div class="mb-3">
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+          <div>
+            <img src="@Model.ImagePath" alt="Product Image" class="img-thumbnail" style="max-height:150px;" />
+          </div>
+        }
+      </div>
+      <p class="card-text">
+        <strong>Description:</strong>
+        @Model.Description
+      </p>
       <p class="card-text">
         <strong>Price:</strong>
         @CurrencyHelper.ToRupiah(Model.Price)
